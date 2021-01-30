@@ -1,0 +1,10 @@
+.box .col-2{
+    max-width: 50% !important;
+    max-height: 100% !important; 
+    border:1px solid; 
+    padding:10px; 
+    box-sizing: border-box; 
+    float:left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

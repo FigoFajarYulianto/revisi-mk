@@ -1,0 +1,28 @@
+.profil{
+    /* background-color: aqua; */
+    width: 900px;
+    height: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+}
+.form{
+    padding-top: 20px;
+    width: 30%;
+    height: 100%;
+    float: right;
+    margin-top: -30px;
+}
+.profil-detail{
+    width: 70%;
+    height: 100%;
+    float:left;
+}
+.alert{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.form-grub{
+    margin-right: 20px;
+    margin-left: 20px;
+}
