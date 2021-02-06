@@ -44,40 +44,44 @@ while($satuanbarang=$satuan->fetch_assoc())
 
         <label>nama</label>
 
-        <input type="text" class="form-control" name="nama" required oninvalid="this.setCustomValidity('silahkan masukkan nama produk.')" oninput="setCustomValidity('')" />
+        <input type="text" class="form-control" name="nama" required
+            oninvalid="this.setCustomValidity('silahkan masukkan nama produk.')" oninput="setCustomValidity('')" />
 
     </div>
 
     <label>Nama Kategori</label>
 
-    <select class="form-control" name="id_kategori" required oninvalid="this.setCustomValidity('silahkan pilih kategori.')" oninput="setCustomValidity('')" />
+    <select class="form-control" name="id_kategori" required
+        oninvalid="this.setCustomValidity('silahkan pilih kategori.')" oninput="setCustomValidity('')" />
 
-        <option value="">Pilih Kategori</option>
+    <option value="">Pilih Kategori</option>
 
-        <?php foreach ($datakategori as $key => $value): ?>
-
-
-
-        <option value="<?php echo $value["id_kategori"] ?>"><?php echo $value["nama_kategori"] ?></option>
+    <?php foreach ($datakategori as $key => $value): ?>
 
 
 
-        <?php endforeach ?>
+    <option value="<?php echo $value["id_kategori"] ?>"><?php echo $value["nama_kategori"] ?></option>
+
+
+
+    <?php endforeach ?>
 
     </select>
 
-
-
+    <div class="form-group">
+        <label>Stok</label>
+        <input maxlength="5" required type="number" min="1" name="stok" id="stok" class="form-control" required
+            oninvalid="this.setCustomValidity('isi stok.')" oninput="setCustomValidity('')">
+    </div>
     <div class="form-group">
 
         <label>Deskripsi</label>
 
-        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="10" required oninvalid="this.setCustomValidity('silahkan isi deskripsi.');"></textarea>
+        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="10" required
+            oninvalid="this.setCustomValidity('silahkan isi deskripsi.');"></textarea>
 
         <script>
-
         CKEDITOR.replace('deskripsi');
-
         </script>
 
     </div>
@@ -92,7 +96,8 @@ while($satuanbarang=$satuan->fetch_assoc())
 
     <label>Pilih Satuan</label>
 
-    <select class="form-control" name="id_satuan" required oninvalid="this.setCustomValidity('silahkan pilih satuan produk.')" oninput="setCustomValidity('')">
+    <select class="form-control" name="id_satuan" required
+        oninvalid="this.setCustomValidity('silahkan pilih satuan produk.')" oninput="setCustomValidity('')">
 
         <option value="">Pilih Satuan</option>
 
@@ -112,7 +117,8 @@ while($satuanbarang=$satuan->fetch_assoc())
 
         <label>Lokasi </label>
 
-        <input type="text" class="form-control" name="map" required="required" oninvalid="this.setCustomValidity('silahkan masukkan alamat.')" oninput="setCustomValidity('')">
+        <input type="text" class="form-control" name="map" required="required"
+            oninvalid="this.setCustomValidity('silahkan masukkan alamat.')" oninput="setCustomValidity('')">
 
     </div>
 
@@ -120,7 +126,8 @@ while($satuanbarang=$satuan->fetch_assoc())
 
         <label>Foto</label>
 
-        <input type="file" class="form-control" name="foto" required="required" oninvalid="this.setCustomValidity('silahkan masukkan foto Produk.')" oninput="setCustomValidity('')">
+        <input type="file" class="form-control" name="foto" required="required"
+            oninvalid="this.setCustomValidity('silahkan masukkan foto Produk.')" oninput="setCustomValidity('')">
 
     </div>
 

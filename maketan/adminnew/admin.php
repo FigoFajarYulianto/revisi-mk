@@ -191,7 +191,6 @@ if(!isset($_SESSION['login'])) {
                             <li class="text-center">
 
                                 <img src="../AADMIN/img/<?php echo $saya['foto_admin'] ?>"
-
                                     class="user-image img-responsive" />
 
                             </li>
@@ -228,11 +227,17 @@ if(!isset($_SESSION['login'])) {
 
                                 <ul class="sub">
 
+
+
                                     <li><a href="admin.php?halaman=produk"> PRODUK</a></li>
 
+                                    <li><a href="admin.php?halaman=kategori"> KATEGORI</a></li>
 
+                                    <li><a href="admin.php?halaman=pembelian"> PEMBELIAN</a></li>
 
                                     <li><a href="admin.php?halaman=pelanggan">PELANGGAN</a></li>
+
+                                    <li><a href="admin.php?halaman=laporan">LAPORAN</a></li>
 
 
 
@@ -283,6 +288,15 @@ if(!isset($_SESSION['login'])) {
                        include 'produk.php'; 
 
                     }
+                    
+                    elseif ($_GET['halaman']=="pembelian")
+
+                    {
+
+                        include 'pembelian.php'; 
+
+                    }
+                
 
                     elseif ($_GET['halaman']=="pelanggan")
 
@@ -291,7 +305,7 @@ if(!isset($_SESSION['login'])) {
                         include 'pelanggan.php'; 
 
                     }
-
+                    
                     elseif ($_GET['halaman']=="detail")
 
                     {
@@ -356,12 +370,27 @@ if(!isset($_SESSION['login'])) {
 
                     }
 
+                    elseif ($_GET['halaman']=="kategori") 
+                    {
+                        include 'kategori.php';
+
+                    }
+                    
                     elseif ($_GET['halaman']=="tambahkategori") 
 
                     {
-
                         include 'tambahkategori.php';
+                    }
+                    
+                    elseif ($_GET['halaman']=="ubahkategori") 
 
+                    {
+                        include 'ubahkategori.php';
+                    }
+
+                    elseif ($_GET['halaman']=="hapuskategori") 
+                    {
+                        include 'hapuskategori.php';
                     }
 
                      elseif ($_GET['halaman']=="hapuspelanggan") 
@@ -369,6 +398,19 @@ if(!isset($_SESSION['login'])) {
                     {
 
                         include 'hapuspelanggan.php';
+
+                    }
+                    
+                    elseif ($_GET['halaman']=="pembayaran") 
+                    {
+                        include 'pembayaran.php';
+                    }
+
+                    elseif ($_GET['halaman']=="laporan") 
+
+                    {
+
+                        include 'laporan.php';
 
                     }
 
@@ -479,7 +521,6 @@ if(!isset($_SESSION['login'])) {
         <script src="assets/DataTables/Buttons-1.5.6/js/buttons.colvis.min.js"></script>
 
         <script>
-
         $(document).ready(function() {
 
             var table = $('#table').DataTable({
@@ -509,13 +550,11 @@ if(!isset($_SESSION['login'])) {
                 .appendTo('#table_wrapper .col-md-5:eq(0)');
 
         });
-
         </script>
 
 
 
         <script type="application/javascript">
-
         $(document).ready(function() {
 
             $("#date-popover").popover({
@@ -595,7 +634,6 @@ if(!isset($_SESSION['login'])) {
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
 
         }
-
         </script>
 
 
