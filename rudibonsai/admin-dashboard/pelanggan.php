@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["admin"])) {
-    header("Location: login.php");
-    exit;
-}
+//if (!isset($_SESSION["admin"])) {
+  //  header("Location: login.php");
+    //exit;
+//}
 
 // dua variabel dibawah ini untuk indikator sidebar aktif
 $sidebarActive = "sidebarPelanggan";
@@ -39,7 +39,9 @@ AND tb_akun.is_active = 1
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -93,22 +95,23 @@ AND tb_akun.is_active = 1
                                     <tbody>
 
                                         <?php foreach ($data as $d) : ?>
-                                            <tr>
-                                                <td>
-                                                    <?= htmlspecialchars($d['nama']); ?>
-                                                </td>
-                                                <td>
-                                                    <?= htmlspecialchars($d['email']); ?>
-                                                </td>
-                                                <td>
-                                                    <?= $d['no_telepon']; ?>
-                                                </td>
-                                                <td>
-                                                    <p> <?= htmlspecialchars($d['detail_alamat']); ?><br>
-                                                        <?= $d['kec']; ?>, <?= $d['kab']; ?>, Provinsi <?= $d['prov']; ?>, Indonesia
-                                                    </p>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td>
+                                                <?= htmlspecialchars($d['nama']); ?>
+                                            </td>
+                                            <td>
+                                                <?= htmlspecialchars($d['email']); ?>
+                                            </td>
+                                            <td>
+                                                <?= $d['no_telepon']; ?>
+                                            </td>
+                                            <td>
+                                                <p> <?= htmlspecialchars($d['detail_alamat']); ?><br>
+                                                    <?= $d['kec']; ?>, <?= $d['kab']; ?>, Provinsi <?= $d['prov']; ?>,
+                                                    Indonesia
+                                                </p>
+                                            </td>
+                                        </tr>
                                         <?php endforeach; ?>
 
                                     </tbody>

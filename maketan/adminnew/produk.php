@@ -36,6 +36,8 @@ if(!isset($_SESSION['login'])) {
 
             <th>HARGA</th>
 
+            <th>STOK</th>
+
             <th>SATUAN</th>
 
             <th>MAP LINK</th>
@@ -68,6 +70,8 @@ if(!isset($_SESSION['login'])) {
 
             <td><?php echo ($pecah['harga'])?></td>
 
+            <td><?php echo ($pecah['stok'])?></td>
+
             <td><?php echo $pecah['nama_satuan']?></td>
 
             <td><?php echo $pecah['map_link']?></td>
@@ -83,15 +87,12 @@ if(!isset($_SESSION['login'])) {
             <td>
 
                 <a href="admin.php?halaman=hapusproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-danger"
-
                     onclick="return confirm('Yakin Mau di Hapus?')"><i class="lyphicon glyphicon-trash"></i>Hapus</a>
 
                 <a href="admin.php?halaman=ubahproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-warning"><i
-
                         class="lyphicon glyphicon-edit"></i>Ubah</a>
 
                 <a href="admin.php?halaman=detailproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-info"><i
-
                         class="glyphicon glyphicon-eye">Detail</a>
 
             </td>
