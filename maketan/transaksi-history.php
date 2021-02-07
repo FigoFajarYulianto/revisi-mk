@@ -35,15 +35,15 @@
             cursor: pointer;
             padding: 10px;
             font-size: 16px;
-            background-color: #ffffff;
+            background-color: #404040;
             text-transform: uppercase;
             font-weight: bold;
             color: #dfdfdf;
         }
         .tabContainer .tabPanel {
             height: 85%;
-            background-color: #f6f6f6;
-            color: #000000;
+            background-color: #606060;
+            color: white;
             text-align: center;
             padding-top: 40px;
             box-sizing: border-box;
@@ -87,7 +87,7 @@
         }
         .item-trans-bawah {
             height: 30%;
-            background: #fbf1f0;
+            background: #808080;
             border-top: 1px #eee solid;
             padding: 20px;
         }
@@ -109,7 +109,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3">
                 <div class="card">
-                    <div class="card-header"><h3>Akun</h3></div>
+                    <div class="card-header" style="background-color: #404040; color:white;"><h3>Akun</h3></div>
                     <div class="card-body px-0 py-0">
                         <ul class="list-group list-group-flush">
                             <a href="index.php" class="list-group-item list-group-item-success py-3">Kembali ke Dasboard</a>
@@ -123,7 +123,7 @@
                 <div class="card">
                     <div class="card-body py-0 px-0">
                         <div class="tabContainer">
-                            <div class="buttonContainer">
+                            <div class="buttonContainer" >
                                 <button onclick="showPanel(0,'#007bff')">Belum Bayar</button>
                                 <button onclick="showPanel(1,'#007bff')">Dikemas</button>
                                 <button onclick="showPanel(2,'#007bff')">Dikirim</button>
@@ -152,7 +152,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_bb; ?></span>
@@ -235,7 +235,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_dikemas; ?></span>
@@ -306,7 +306,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_dikirim; ?></span>
@@ -378,7 +378,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_selesai; ?></span>
@@ -449,7 +449,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_gagal; ?></span>

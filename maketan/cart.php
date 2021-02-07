@@ -8,7 +8,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Icon Title -->
-    <link rel="icon" href="../images/hi_valeeqa.png">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="cart.js" async></script>
@@ -42,8 +42,8 @@ session_start();
             <div class="col-lg-8">
                 
                 <div class="card">
-                    <div class="card-header"><h3>Keranjang</h3></div>
-                    <div class="card-body px-4 item-body">
+                    <div class="card-header" style="background-color: #404040; color:white;"><h3>Keranjang</h3></div>
+                    <div class="card-body px-4 item-body" style="background-color: #808080; color:white; border:none;">
                         <?php
                             // Status ketika barang ditambahkan
                             if(isset($_GET["status"])){
@@ -127,8 +127,8 @@ session_start();
             <!-- Grid Pembayaran -->
             <div class="col-lg-4">
                 <div class="card">
-                    <div class="card-header text-center"><h3>Pembayaran</h3></div>
-                    <div class="card-body">
+                    <div class="card-header text-center" style="background-color: #404040; color:white;"><h3>Pembayaran</h3></div>
+                    <div class="card-body" style="background-color: #808080; color:white;">
                         <form action="checkout.php" method="POST">
                             <div class="table-responsive-sm">
                                 <!-- Total -->

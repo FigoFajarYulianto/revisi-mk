@@ -44,10 +44,10 @@
             <div class="col-sm-8">
                 <!-- Alamat Pengiriman -->
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #404040; color:white;"> 
                         <h3>Alamat Pengiriman</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: #A0A0A0; color:white;">
                         <div class="table-responsive-sm">
                             <table class="table table-bordered">
                                 <?php
@@ -79,10 +79,10 @@
                 </div>
                 <!-- Rincian Pesanan -->
                 <div class="card mt-4">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #404040; color:white;">
                         <h3>Rincian Pesanan</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: #A0A0A0; color:white;">
                         <div class="table-responsive-sm">
                             <?php
                                 if(isset($_GET["id-transaksi"])){
@@ -161,7 +161,7 @@
                             
                                     
                             ?>
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" >
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th colspan="3">Pesanan <?php echo $nomor; ?></th>
@@ -208,10 +208,10 @@
                 ?>
                         <!-- Lanjutkan -->
                         <div class="card mb-4">
-                            <div class="card-header">
+                            <div class="card-header" style="background-color: #404040; color:white;">
                                 <h3>Lanjutkan</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #A0A0A0; color:white;">
                                 <form action="checkout-process.php" method="POST">
                                     Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
                                     <input type="hidden" name="jenis-pembayaran" value="<?php echo $jenis_pembayaran; ?>">
