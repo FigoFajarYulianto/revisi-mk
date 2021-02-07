@@ -8,7 +8,7 @@ session_start();
 
 if(isset($_SESSION["login"])) {
 
-    header("location: admin.php");
+    header("location: index.php");
 
     exit;
 
@@ -190,7 +190,7 @@ $koneksi = new mysqli("localhost", "root", "", "maketan");
 
                             echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
 
-                            echo "<meta http-equiv='refresh' content='1;url=admin.php'>";
+                            echo "<meta http-equiv='refresh' content='1;url=index.php'>";
 
                         }
 

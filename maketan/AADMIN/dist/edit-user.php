@@ -91,7 +91,7 @@
 
                     <div class="form-group">
 
-                        <img src="../../gambar/user/<?php echo $data['user_foto'] ?>" width="100">
+                        <img src="../../gambar/user/<?php echo $foto; ?>" width="100">
 
                     </div>
 

@@ -15,8 +15,8 @@
 
                 <?php
 
-        $id_produk = $_GET["id_produk"];
-        $sql = "SELECT * FROM tb_produk WHERE id_produk='$id_produk'";
+$id_produk = $_GET["id_produk"];
+        $sql = "SELECT * FROM tb_produk inner join kategori on tb_produk.id_kategori = kategori.id_kategori inner join satuan on tb_produk.id_satuan = satuan.id_satuan where tb_produk.id_produk='$id_produk'";
         $query = mysqli_query($koneksi, $sql);
         $data = mysqli_fetch_array($query);
 
@@ -147,8 +147,7 @@ while($satuanbarang=$satuan->fetch_assoc())
 
                     <div class="form-group">
 
-                        <img src="../../produk2/produk2/assets/img/produk/<?php echo $data['gbr_produk'] ?>"
-                            width="100">
+                        <img src="../produk2/produk2/assets/img/produk/<?php echo $data['gbr_produk'] ?>" width="100">
 
                     </div>
 

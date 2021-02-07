@@ -21,7 +21,7 @@
 
         $koneksi->query("UPDATE user SET user_nama='$_POST[nama]',
 
-        user_email='$_POST[email]',user_telepon='$_POST[wa]',alamat='$_POST[alamat]',user_foto='$namafoto'
+        user_email='$_POST[email]',user_telepon='$_POST[wa]',user_foto='$namafoto',alamat='$_POST[alamat]'
 
         WHERE user_id='$_GET[user_id]'");
 
