@@ -15,8 +15,8 @@
 
                 <?php
 
-$id_produk = $_GET["id_produk"];
-        $sql = "SELECT * FROM tb_produk inner join kategori on tb_produk.id_kategori = kategori.id_kategori inner join satuan on tb_produk.id_satuan = satuan.id_satuan where tb_produk.id_produk='$id_produk'";
+        $id_produk = $_GET["id_produk"];
+        $sql = "SELECT * FROM tb_produk WHERE id_produk='$id_produk'";
         $query = mysqli_query($koneksi, $sql);
         $data = mysqli_fetch_array($query);
 
@@ -147,7 +147,8 @@ while($satuanbarang=$satuan->fetch_assoc())
 
                     <div class="form-group">
 
-                        <img src="../produk2/produk2/assets/img/produk/<?php echo $data['gbr_produk'] ?>" width="100">
+                        <img src="../../produk2/produk2/assets/img/produk/<?php echo $data['gbr_produk'] ?>"
+                            width="100">
 
                     </div>
 
@@ -198,13 +199,14 @@ if (isset($_POST['ubah']))
 
 
 
-        $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
+        $sql= "UPDATE tb_produk SET nama_produk='$_POST[nama]',
 
         id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]', id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
 
         gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
 
-        WHERE id_produk='$_GET[id]'");
+        WHERE id_produk='$_GET[id]'";
+        $query = mysqli_query($koneksi, $sql);
 
     }
 
@@ -212,12 +214,12 @@ if (isset($_POST['ubah']))
 
     {
 
-      $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
+        $sql= "UPDATE tb_produk SET nama_produk='$_POST[nama]',
 
-      id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
+        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
 
-      deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'");
-
+        deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'";
+        $query = mysqli_query($koneksi, $sql);
 
     }
 

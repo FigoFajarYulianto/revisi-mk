@@ -4,11 +4,14 @@
     $status = $_GET["status"];
     $id_produk = isset($_GET["id_produk"]) ? $_GET["id_produk"] : "";
 
-    $kategori = $_POST["kategori"];
-    $nama_barang = $_POST["nama_barang"];
-    $warna = $_POST["warna"];
-    $bahan = $_POST["bahan"];
+    $nama_produk= $_POST["nama_produk"];
+    $id_kategori = $_POST["id_kategori"];
     $harga = $_POST["harga"];
+    $stok = $_POST["stok"];
+    $id_satuan = $_POST["id_satuan"];
+    $map_link = $_POST["map_link"];
+    $gbr = $_POST["gbr_produk"];
+    $deskripsi = $_POST["deskripsi_produk"];
     
     $panjang = $_POST["panjang"];
     $lebar_dada = $_POST["lebar-dada"];
@@ -40,7 +43,7 @@
 
     if($status == "edit"){
         // Edit produk
-        $sql = "update produk set id_kategori='$kategori', nama_barang='$nama_barang', warna='$warna', bahan='$bahan', harga='$harga', stok='$stok', keterangan='$keterangan', best_seller='$best_seller' where id_produk='$id_produk'";
+        $sql = "update produk set nama_produk='$nama_produk', id_kategori='$id_kategori', harga='$harga', stok='$stok', harga='$harga', stok='$stok', keterangan='$keterangan', best_seller='$best_seller' where id_produk='$id_produk'";
         $query = mysqli_query($koneksi, $sql);
         // Edit ukuran
         $sql = "update ukuran set panjang=$panjang, lebar_dada=$lebar_dada where id_produk=$id_produk";
