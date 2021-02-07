@@ -18,8 +18,8 @@
 
 				<?php 
 				include 'koneksi.php';
-				if(isset($_GET['alert'])){
-					if($_GET['alert'] == "registered"){
+				if(isset($_GET['register'])){
+					if($_GET['register'] == "success"){
 						?>
 						<div class="alert alert-success text-center">
 							<span class="font-weight-bold">Anda berhasil mendaftar.</span>
@@ -27,17 +27,17 @@
 							<small class="font-weight-light">Selanjutnya silahkan login.</small>
 						</div>
 						<?php
-					}elseif($_GET['alert'] == "logout"){
+					}elseif($_GET['register'] == "logout"){
 						?>
 						<div class="alert alert-success text-center">
 							<span class="font-weight-bold">Anda telah logout.</span>
 						</div>
 						<?php
-					}elseif($_GET['alert'] == "login-dulu"){
+					}elseif($_GET['register'] == "login-dulu"){
 						?>
 						<div class="alert alert-warning text-center font-weight-bold">Silahkan login untuk melanjutkan.</div>
 						<?php
-					}elseif($_GET['alert'] == "gagal"){
+					}elseif($_GET['register'] == "gagal"){
 						?>
 						<div class="alert alert-danger text-center">
 							<span class="font-weight-bold">Login gagal !</span>
