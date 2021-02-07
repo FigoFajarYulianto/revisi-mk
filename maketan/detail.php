@@ -108,339 +108,352 @@
 
     <body>
 
-  <!-- Navbar -->
+ <!-- Navbar -->
 
-  <header>
+ <header style="position: fixed;">
 
-          <div class="container" style="margin-top: -10px;">
+<div class="container" style="margin-top: -10px;">
 
-            <input type="checkbox" name="" id="check">
+  <input type="checkbox" name="" id="check">
 
-            <div class="logo-container">
+  
 
-                <a href="index.php" type="button" style="text-decoration: none;"><h3 class="logo">MAKE<span>TAN</span></h3></a>
+  <div class="logo-container">
+
+      <a href="index.php" type="button" style="text-decoration: none;"><h3 class="logo">MAKE<span>TAN</span></h3></a>
+
+  </div>
+
+  <div class="nav-btn">
+
+      <div class="nav-links">
+
+        <form action="pencarian.php" method="get">
+
+          <div class="wrapper">
+
+            <div class="search-input">
+
+              <a href="" target="_blank" hidden></a>
+
+              <input type="text" class="form-control" name="keyword" placeholder="Cari Produk..">
+
+              <div class="autocom-box">
+
+                <!-- here list are inserted from javascript -->
+
+              </div>
+
+              <div class="icon"><i class="fas fa-search" style="margin-top: 10px;"></i></div>
 
             </div>
 
-            <div class="nav-btn">
+          </div>
 
-                <div class="nav-links">
+        </form>
 
-                  <form action="pencarian.php" method="get">
+          <ul>
 
-                    <div class="wrapper">
+              <li class="nav-link" style="--i: .6s">
 
-                      <div class="search-input">
+                  <a href="kategori_pertanian.php" style="color: #808080;">Pertanian</a>
 
-                        <a href="" target="_blank" hidden></a>
+              </li>
 
-                        <input type="text" class="form-control" name="keyword" placeholder="Cari Produk..">
+              <li class="nav-link" style="--i: .85s">
 
-                        <div class="autocom-box">
+                  <a href="kategori_alat.php" style="color: #808080;">Alat</a>
 
-                          <!-- here list are inserted from javascript -->
+              </li>
 
-                        </div>
+              <li class="nav-link" style="--i: 1.1s">
 
-                        <div class="icon"><i class="fas fa-search"></i></div>
+                  <a href="kategori_pupuk.php" style="color: #808080;">Pupuk</a>
 
-                      </div>
+              </li>
 
-                    </div>
+              <li class="nav-link" style="--i: 1.35s">
 
-                  </form>
+                  <a href="kategori_bibit.php" style="color: #808080;">Bibit</a>
 
-                    <ul>
+              </li>
 
-                        <li class="nav-link" style="--i: .6s">
+              <li class="nav-link" style="--i: 1.6s">
 
-                            <a href="kategori_pertanian.php" style="color: #808080;">Pertanian</a>
+                  <a href="kategori_obat.php" style="color: #808080;">Obat</a>
 
-                        </li>
+              </li>
 
-                        <li class="nav-link" style="--i: .85s">
+          </ul>
 
-                            <a href="kategori_alat.php" style="color: #808080;">Alat</a>
+      </div>
 
-                        </li>
+      <div class="login-navbar">
 
-                        <li class="nav-link" style="--i: 1.1s">
+        <?php if (isset($_SESSION['user_status'])):?>
 
-                            <a href="kategori_pupuk.php" style="color: #808080;">Pupuk</a>
+          <?php $id_user = $_SESSION['user_id'];
 
-                        </li>
+          $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
 
-                        <li class="nav-link" style="--i: 1.35s">
+          $saya = mysqli_fetch_assoc($s); ?>
 
-                            <a href="kategori_bibit.php" style="color: #808080;">Bibit</a>
+          <div class="nav_right">
+          <li  class="cart" style="display: flex; float:left; margin-top:40px; margin-right:20px; width:10px; ">
+          <a href="cart.php" role="button"><i class="fas fa-shopping-cart" style="color: white;"></i></a>
+          </li>
+            <ul>
 
-                        </li>
 
-                        <li class="nav-link" style="--i: 1.6s">
 
-                            <a href="kategori_obat.php" style="color: #808080;">Obat</a>
+            <li class="nav-item dropdown no-arrow" style="margin-left: 10px; padding-left:10px;">
+            
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
 
-                        </li>
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
 
-                    </ul>
+                      <span class="small" style="margin-right: -80px; font-size: 0,8rem; font-weight: bold; color:white; font-family:Verdana, Geneva, Tahoma, sans-serif;"><?php echo $saya['user_nama']; ?></span>
 
-                </div>
+                      <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
 
-                <div class="login-navbar">
+                  </a>
 
-                  <?php if (isset($_SESSION['user_status'])):?>
+                  
 
-                    <?php $id_user = $_SESSION['user_id'];
+                  <!-- Dropdown - User Information -->
 
-                    $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 
-                    $saya = mysqli_fetch_assoc($s); ?>
+                      aria-labelledby="userDropdown">
 
-                    <div class="nav_right">
+                      <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
 
-                      <ul>
+                          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
 
-                      <li class="nav-item dropdown no-arrow">
+                          Profile
 
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
+                      </a> 
+                      <a class="dropdown-item" href="transaksi-history.php" >
 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                          <i class="far fa-clipboard fa-sm fa-fw mr-2 text-gray-400"></i>
 
-                                <span class="small" style="margin-right: -80px; font-size: 0,8rem; font-weight: bold; color:white; font-family:Verdana, Geneva, Tahoma, sans-serif;"><?php echo $saya['user_nama']; ?></span>
+                          riwayat belanja
 
-                                <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
+                      </a> 
 
-                            </a>
+                      <?php //$sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
 
-                            
+                      <?php //$cek = mysqli_num_rows($sql); ?>
 
-                            <!-- Dropdown - User Information -->
+                      <?php //if(isset($_SESSION['user_id'])) { ?>           
 
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        <?php //if ($cek > 0) { ?>
 
-                                aria-labelledby="userDropdown">
+                        <!-- <a class="dropdown-item" href="profil_toko.php">
 
-                                <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
+                          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
 
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                          profil toko
 
-                                    Profile
+                        </a> -->
 
-                                </a> 
+                      <?php //}else{ ?>
 
-                                <?php //$sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
+                      <!-- <a class="dropdown-item" href="buka_toko2/buka_toko.php">
 
-                                <?php //$cek = mysqli_num_rows($sql); ?>
+                          <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
 
-                                <?php //if(isset($_SESSION['user_id'])) { ?>           
+                          buat toko
 
-                                  <?php //if ($cek > 0) { ?>
+                      </a> -->
 
-                                  <!-- <a class="dropdown-item" href="profil_toko.php">
+                      <?php //} ?>
 
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                      <?php //} ?>
 
-                                    profil toko
+                      <div class="dropdown-divider"></div>
 
-                                  </a> -->
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 
-                                <?php //}else{ ?>
+                          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 
-                                <!-- <a class="dropdown-item" href="buka_toko2/buka_toko.php">
+                          Logout
 
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-
-                                    buat toko
-
-                                </a> -->
-
-                                <?php //} ?>
-
-                                <?php //} ?>
-
-                                <div class="dropdown-divider"></div>
-
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-
-                                    Logout
-
-                                </a>
-
-                            </div>
-
-                        </li>
-
-                      </ul>
-
-                    </div>
+                      </a>
 
                   </div>
 
-                    <?php else: ?>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+          <?php else: ?>
 
 
 
-                  <div class="log-sign" style="--i: 1.8s">
+        <div class="log-sign" style="--i: 1.8s">
 
-                          <a href="Login/login.php" class="btn transparent">Masuk</a>
+                <a href="Login/login.php" class="btn transparent">Masuk</a>
 
-                          <a href="Login/daftar.php" class="btn solid">Daftar</a>
-
-                      </div>
-
-                  </div>
-
-                </div>
-
-            <?php endif ?>
-
-            <div class="hamburger-menu-container">
-
-                <div class="hamburger-menu">
-
-                    <div></div>
-
-                </div>
+                <a href="Login/daftar.php" class="btn solid">Daftar</a>
 
             </div>
 
         </div>
 
-        
+      </div>
 
-    </header>
+  <?php endif ?>
 
-    <style type="text/css">
+  <div class="hamburger-menu-container">
 
-    header .img-search {
+      <div class="hamburger-menu">
 
-    width: 18px;
+          <div></div>
 
-    }
+      </div>
 
+  </div>
 
+</div>
 
-    header .wrap-search {
 
-        position: relative;
 
-        background-color: #ffffff;
+</header>
 
-        width: 100%;
+<style type="text/css">
 
-        height: 40px;
+header .img-search {
 
-        margin-top: 20px;
+width: 18px;
 
-        margin-bottom: auto;
+}
 
-        border-radius: 20px;
 
-    }
 
+header .wrap-search {
 
+position: relative;
 
-    header .container .nav-btn .nav-links .wrap-search .form-control {
+background-color: #ffffff;
 
-        background-color: transparent;
+width: 100%;
 
-        position: absolute;
+height: 40px;
 
-        width: 100%;
+margin-top: 20px;
 
-        height: 100%;
+margin-bottom: auto;
 
-        overflow: hidden;
+border-radius: 20px;
 
-        border: 1px solid #cdcdcd;
+}
 
-        z-index: 1;
 
-        padding: 9px;
 
-        display: flex;
+header .container .nav-btn .nav-links .wrap-search .form-control {
 
-        justify-content: center;
+background-color: transparent;
 
-        align-items: center;  
+position: absolute;
 
-        padding-left: 20px;
+width: 100%;
 
-    }
+height: 100%;
 
+overflow: hidden;
 
+border: 1px solid #cdcdcd;
 
-    header .wrap-search .form-control ::placeholder {
+z-index: 1;
 
-        color: #cdcdcd;
+padding: 9px;
 
-        font-size: 14px;
+display: flex;
 
-        padding-left: 10px;
+justify-content: center;
 
-    }
+align-items: center;  
 
+padding-left: 20px;
 
+}
 
-    header .wrap-search .form-control:focus {
 
-        box-shadow: none;
 
-        border: 1px solid #0673f0;
+header .wrap-search .form-control ::placeholder {
 
-    }
+color: #cdcdcd;
 
+font-size: 14px;
 
+padding-left: 10px;
 
-    header .wrap-search .wrap-icon-search {
+}
 
-        background-color: #f3f4f5;
 
-        position: absolute;
 
-        right: 0;
+header .wrap-search .form-control:focus {
 
-        height: 100%;
+box-shadow: none;
 
-        width: 4%;
+border: 1px solid #0673f0;
 
-    }
+}
 
 
 
-    header .wrap-search img {
+header .wrap-search .wrap-icon-search {
 
-        float: right;
+background-color: #f3f4f5;
 
-        margin-right:15px ;
+position: absolute;
 
-        margin-top: 10px;
+right: 0;
 
+height: 100%;
 
+width: 4%;
 
-    }
+}
 
-    </style>
 
-    <main>
 
-        <section>
+header .wrap-search img {
 
-            <div class="overlay"></div>
+float: right;
 
-        </section>
+margin-right:15px ;
 
-    </main>
+margin-top: 10px;
 
-    <!-- Akhir navbar -->
+
+
+}
+
+</style>
+
+<main>
+
+<section>
+
+  <div class="overlay"></div>
+
+</section>
+
+</main>
+
+<!-- Akhir navbar -->
 
 
 
         <!-- Detail Produk -->
 
-        <div class="section" style="height:100%; margin-top:20px; margin-left:20%; margin-right:20%;">
+        <div class="section" style="height:100%; margin-top:200px; margin-left:20%; margin-right:20%;">
 
             <div class="container" style="height: 100%;  border-radius:10px;">
 
@@ -468,7 +481,7 @@
                             <input type="number" name="jumlah" id="jumlah" class="form-control" value="1" min="1" max="<?php echo $p->stok ?>" maxlength="3" required>
                         </div>
 
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        
                         <button type="button" onclick="add_cart()" class="btn btn-primary">Tambahkan ke Keranjang</button>
 
                         <br>

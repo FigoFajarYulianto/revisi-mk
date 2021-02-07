@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="style_footer.css">
 
 <link rel="stylesheet" href="style_detail.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <?php include 'sendemail.php'; ?>
 

@@ -225,6 +225,13 @@ if (!isset($_SESSION['user_status']))
                                     Profile
 
                                 </a> 
+                                <a class="dropdown-item" href="transaksi-history.php" >
+
+                                    <i class="far fa-clipboard fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                                    riwayat belanja
+
+                                </a> 
 
                                 <?php //$sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
 

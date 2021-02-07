@@ -2,7 +2,7 @@
 
 <?php
 
-$koneksi = mysqli_connect("localhost","root","","maketan");
+$koneksi = mysqli_connect("localhost","root","","u1011496_maketan");
 
 $datakategori=array();
 

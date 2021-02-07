@@ -5,11 +5,12 @@
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Icon Title -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="icon" href="../images/hi_valeeqa.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -104,7 +105,6 @@
     </style>
   </head>
   <body>
-    
     <div class="container marg">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3">
@@ -112,14 +112,14 @@
                     <div class="card-header"><h3>Akun</h3></div>
                     <div class="card-body px-0 py-0">
                         <ul class="list-group list-group-flush">
-                            <a href="akun.php" class="list-group-item list-group-item-action py-3">Akun Saya</a>
-                            <a href="transaksi-history.php" class="list-group-item list-group-item-action active py-3">History Transaksi</a>
-                            <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a>
+                            <a href="index.php" class="list-group-item list-group-item-success py-3">Kembali ke Dasboard</a>
+                            <a href="transaksi-history.php" class="list-group-item list-group-item-dark py-3">History Transaksi</a>
+                            <!-- <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a> -->
                           </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xl-9">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xl-9" style="margin-left: auto; margin-right:auto;">
                 <div class="card">
                     <div class="card-body py-0 px-0">
                         <div class="tabContainer">
@@ -276,7 +276,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_dikemas; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_dikemas; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -348,7 +348,7 @@
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
                                                     <a href="#" class="btn btn-dark mt-3" disabled><?php echo $data_dikirim["resi"]; ?></a>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_dikirim; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_dikirim; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -419,7 +419,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_selesai; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_selesai; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -490,7 +490,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_gagal; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_gagal; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php

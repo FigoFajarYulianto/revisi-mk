@@ -12,6 +12,8 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="cart.js" async></script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
         .marg {
             margin-top: 10rem !important;
@@ -116,7 +118,8 @@ session_start();
                                 }
                             }
                         ?>
-                       
+                       <td style="font-weight: bold;">Total Produk :</td>
+                        <td class="text-right"><span class="item-total"  style="margin-left:503px; font-weight: bold;">Rp <?php echo number_format($total, 0, "", "."); ?></span></td>
                     </div>
                 </div>
             </div>
@@ -129,15 +132,15 @@ session_start();
                         <form action="checkout.php" method="POST">
                             <div class="table-responsive-sm">
                                 <!-- Total -->
-                                <table class="table">
+                                <!-- <table class="table">
                                     <tr>
                                         <td>Total Produk:</td>
                                         <td class="text-right"><span class="item-total">Rp <?php echo number_format($total, 0, "", "."); ?></span></td>
                                     </tr>
-                                </table>
+                                </table> -->
                                 <!-- Pengiriman -->
                                 <table class="table mt-4">
-                                    <thead class="thead-dark"><th>Jenis Pengiriman</th></thead>
+                                    <thead   style="background-color: #918383; color:white;"><th>Jenis Pengiriman</th></thead>
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
@@ -158,7 +161,7 @@ session_start();
 
                                 <!-- Jenis Pembayaran -->
                                 <table class="table mt-4">
-                                    <thead class="thead-dark">
+                                    <thead  style="background-color: #918383; color:white;">
                                         <th>Jenis Pembayaran</th>
                                     </thead>
                                     <tr>
@@ -169,14 +172,14 @@ session_start();
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="bayarNabung" name="jenis-pembayaran" value="tabungan" class="custom-control-input">
                                                 <label class="custom-control-label" for="bayarNabung">Tabungan</label>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </table>
                             </div>
                         <!-- <h4>Jenis Pembayaran</h4>
@@ -188,7 +191,7 @@ session_start();
                             <input type="radio" id="bayarNabung" name="customRadio" class="custom-control-input">
                             <label class="custom-control-label" for="bayarNabung">Tabungan</label>
                         </div> -->
-                            <center><button type="submit" class="btn btn-dark btn-lg">Checkout</button></center>
+                            <center><button type="submit" class="btn btn-seccond btn-lg">Bayar</button></center>
                         </form>
                     </div>
                 </div>
