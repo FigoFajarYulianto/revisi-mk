@@ -16,7 +16,7 @@ if(isset($_SESSION["login"])) {
 
 
 
-$koneksi = new mysqli("localhost", "root", "", "maketan");
+$koneksi = new mysqli("localhost", "root", "", "u1011496_maketan");
 
 
 

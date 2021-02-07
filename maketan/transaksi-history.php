@@ -5,11 +5,12 @@
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Icon Title -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="icon" href="../images/hi_valeeqa.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -34,15 +35,15 @@
             cursor: pointer;
             padding: 10px;
             font-size: 16px;
-            background-color: #ffffff;
+            background-color: #404040;
             text-transform: uppercase;
             font-weight: bold;
             color: #dfdfdf;
         }
         .tabContainer .tabPanel {
             height: 85%;
-            background-color: #f6f6f6;
-            color: #000000;
+            background-color: #606060;
+            color: white;
             text-align: center;
             padding-top: 40px;
             box-sizing: border-box;
@@ -86,7 +87,7 @@
         }
         .item-trans-bawah {
             height: 30%;
-            background: #fbf1f0;
+            background: #808080;
             border-top: 1px #eee solid;
             padding: 20px;
         }
@@ -104,26 +105,25 @@
     </style>
   </head>
   <body>
-    
     <div class="container marg">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3">
                 <div class="card">
-                    <div class="card-header"><h3>Akun</h3></div>
+                    <div class="card-header" style="background-color: #404040; color:white;"><h3>Akun</h3></div>
                     <div class="card-body px-0 py-0">
                         <ul class="list-group list-group-flush">
-                            <a href="akun.php" class="list-group-item list-group-item-action py-3">Akun Saya</a>
-                            <a href="transaksi-history.php" class="list-group-item list-group-item-action active py-3">History Transaksi</a>
-                            <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a>
+                            <a href="index.php" class="list-group-item list-group-item-success py-3">Kembali ke Dasboard</a>
+                            <a href="transaksi-history.php" class="list-group-item list-group-item-dark py-3">History Transaksi</a>
+                            <!-- <a href="ubah-password.php" class="list-group-item list-group-item-action py-3">Ubah Kata Sandi</a> -->
                           </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xl-9">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xl-9" style="margin-left: auto; margin-right:auto;">
                 <div class="card">
                     <div class="card-body py-0 px-0">
                         <div class="tabContainer">
-                            <div class="buttonContainer">
+                            <div class="buttonContainer" >
                                 <button onclick="showPanel(0,'#007bff')">Belum Bayar</button>
                                 <button onclick="showPanel(1,'#007bff')">Dikemas</button>
                                 <button onclick="showPanel(2,'#007bff')">Dikirim</button>
@@ -152,7 +152,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_bb; ?></span>
@@ -235,7 +235,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_dikemas; ?></span>
@@ -276,7 +276,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_dikemas; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_dikemas; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -306,7 +306,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_dikirim; ?></span>
@@ -348,7 +348,7 @@
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
                                                     <a href="#" class="btn btn-dark mt-3" disabled><?php echo $data_dikirim["resi"]; ?></a>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_dikirim; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_dikirim; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -378,7 +378,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_selesai; ?></span>
@@ -419,7 +419,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_selesai; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_selesai; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php
@@ -449,7 +449,7 @@
                                     ?>
                                             <!-- Transaksi -->
                                             <div class="item-trans">
-                                                <div class="item-trans-atas">
+                                                <div class="item-trans-atas" style="background-color: #202020;">
                                                     <div class="row">
                                                         <div class="col text-left">
                                                             <span class="id-transaksi">ID Transaksi: <?php echo $id_transaksi_gagal; ?></span>
@@ -490,7 +490,7 @@
                                                 </div>
                                                 <div class="item-trans-bawah text-right">
                                                     <span class="trans-total">Total: Rp <?php echo number_format($total, 0, "", "."); ?></span><br>
-                                                    <a href="checkout.php?id-transaksi=<?php echo $id_transaksi_gagal; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
+                                                    <a href="checkout_setelah_bayar.php?id-transaksi=<?php echo $id_transaksi_gagal; ?>" class="btn btn-info mt-3">Rincian Pesanan</a>
                                                 </div>
                                             </div>
                                     <?php

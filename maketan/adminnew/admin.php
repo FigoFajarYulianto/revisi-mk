@@ -4,7 +4,7 @@ session_start();
 
 //koneksi ke database
 
-$koneksi = mysqli_connect("localhost","root","","maketan");
+$koneksi = mysqli_connect("localhost","root","","u1011496_maketan");
 
 
 

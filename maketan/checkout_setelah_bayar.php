@@ -13,6 +13,7 @@
     <link rel="icon" href="../images/hi_valeeqa.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
         .marg {
             margin-top: 7rem !important;
@@ -44,10 +45,10 @@
             <div class="col-sm-8">
                 <!-- Alamat Pengiriman -->
                 <div class="card">
-                    <div class="card-header" style="background-color: #404040; color:white;"> 
+                    <div class="card-header">
                         <h3>Alamat Pengiriman</h3>
                     </div>
-                    <div class="card-body" style="background-color: #A0A0A0; color:white;">
+                    <div class="card-body">
                         <div class="table-responsive-sm">
                             <table class="table table-bordered">
                                 <?php
@@ -79,10 +80,10 @@
                 </div>
                 <!-- Rincian Pesanan -->
                 <div class="card mt-4">
-                    <div class="card-header" style="background-color: #404040; color:white;">
+                    <div class="card-header">
                         <h3>Rincian Pesanan</h3>
                     </div>
-                    <div class="card-body" style="background-color: #A0A0A0; color:white;">
+                    <div class="card-body">
                         <div class="table-responsive-sm">
                             <?php
                                 if(isset($_GET["id-transaksi"])){
@@ -161,7 +162,7 @@
                             
                                     
                             ?>
-                                    <table class="table table-bordered" >
+                                    <table class="table table-bordered">
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th colspan="3">Pesanan <?php echo $nomor; ?></th>
@@ -208,16 +209,16 @@
                 ?>
                         <!-- Lanjutkan -->
                         <div class="card mb-4">
-                            <div class="card-header" style="background-color: #404040; color:white;">
+                            <div class="card-header">
                                 <h3>Lanjutkan</h3>
                             </div>
-                            <div class="card-body" style="background-color: #A0A0A0; color:white;">
+                            <div class="card-body">
                                 <form action="checkout-process.php" method="POST">
                                     Jika telah yakin dengan pesanan silahkan lanjutkan pembayaran.
                                     <input type="hidden" name="jenis-pembayaran" value="<?php echo $jenis_pembayaran; ?>">
                                     <input type="hidden" name="jenis-pengiriman" value="<?php echo $jenis_pengiriman; ?>">
                                     <input type="hidden" name="total" value="<?php echo $grand_total; ?>">
-                                    <center><button type="submit" class="btn btn-primary mt-sm-3">Lanjutkan Pembayaran ></button></center>
+                                    <center><button type="submit" class="btn btn-success mt-sm-3">Lanjutkan Pembayaran ></button></center>
                                 </form>
                             </div>
                         </div>
@@ -254,42 +255,10 @@
                             </div>
                         </div>
                         <!-- Konfirmasi -->
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h3>Konfirmasi</h3>
-                            </div>
-                            <div class="card-body">
-                                Konfirmasi pembayaran dengan mengirim foto struk transfer. <br>
-                                <!-- <a href="https://wa.me/<?php //echo $data_wa['user_telepon'];?>text=Halo%20Hi%20Valeeqa,%20saya%20<?php// echo $data['user_nama']; ?>%20mengonfirmasi%20pembayaran%20untuk%20Kode%20Transaksi%20<?php //echo $id_transaksi; ?>.%20Terima%20kasih%20^^" class="btn btn-success w-100 mt-4">Konfirmasi Bukti Transfer</a> -->
-                                <form method="post" enctype="multipart/form-data">
-                                <input type="file" class="form-control" name="foto" required="required" oninvalid="this.setCustomValidity('silahkan masukkan foto Produk.')" oninput="setCustomValidity('')">
-                                <button class="btn btn-primary" name="save">simpan</button>
-                                </form>
-                            </div>
-                        </div>
+                        
                         <?php
 
-		if (isset ($_POST['save']))
-
-		{
-            $id_user = $_SESSION["user_id"];
-			$namanamafoto = $_FILES['foto']['name'];
-
-			$lokasilokasifoto =$_FILES['foto']['tmp_name'];
-
-			move_uploaded_file($lokasilokasifoto, "gambar_transaksi/".$namanamafoto);
-
-			$koneksi->query("INSERT INTO bukti_transaksi
-
-				(user_id,gambar_transaksi)
-
-				VALUES('$id_user','$namanamafoto')");
-
-	        echo "<div class='alert alert-info'>DATA TERSIMPAN</div>";
-
 		
-                
-                    }
                 }
                 ?>       
             </div>
