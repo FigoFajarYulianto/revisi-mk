@@ -22,7 +22,8 @@
 
     <!-- Nav Item - Pesanan -->
     <li id="sidebarPesanan" class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePesanan" aria-expanded="true" aria-controls="CollapsePesanan">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePesanan"
+            aria-expanded="true" aria-controls="CollapsePesanan">
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Pesanan</span>
         </a>
@@ -43,7 +44,8 @@
 
     <!-- Nav Item - Produk -->
     <li id="sidebarProduk" class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduk" aria-expanded="true" aria-controls="collapseProduk">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduk" aria-expanded="true"
+            aria-controls="collapseProduk">
             <i class="fas fa-fw fa-box-open"></i>
             <span>Produk</span>
         </a>

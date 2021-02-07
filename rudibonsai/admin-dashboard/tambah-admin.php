@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["admin"])) {
-    header("Location: login.php");
-    exit;
-}
+// if (!isset($_SESSION["admin"])) {
+  //  header("Location: login.php");
+   // exit;
+//}
 
 // dua variabel dibawah ini untuk indikator sidebar aktif
 // $sidebarActive = "";
@@ -56,7 +56,9 @@ if (isset($_POST['register'])) {
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -114,18 +116,30 @@ if (isset($_POST['register'])) {
 
                                                     <div class="form-group">
                                                         <label for="email">Email</label>
-                                                        <input oninvalid="this.setCustomValidity('format email tidak valid!')" oninput="setCustomValidity('')" maxlength="50" required type="email" class="form-control form-control-user" id="email" name="email">
+                                                        <input
+                                                            oninvalid="this.setCustomValidity('format email tidak valid!')"
+                                                            oninput="setCustomValidity('')" maxlength="50" required
+                                                            type="email" class="form-control form-control-user"
+                                                            id="email" name="email">
                                                         <small>Contoh : email@rudibonsai.com</small>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="password1">Password</label>
-                                                        <input oninvalid="this.setCustomValidity('password terlalu pendek!')" oninput="setCustomValidity('')" minlength="8" required type="password" class="form-control form-control-user" id="password1" name="password1">
+                                                        <input
+                                                            oninvalid="this.setCustomValidity('password terlalu pendek!')"
+                                                            oninput="setCustomValidity('')" minlength="8" required
+                                                            type="password" class="form-control form-control-user"
+                                                            id="password1" name="password1">
                                                         <small>Password minimal 8 karakter</small>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="password2">Konfirmasi Password</label>
-                                                        <input oninvalid="this.setCustomValidity('password terlalu pendek!')" oninput="setCustomValidity('')" minlength="8" required type="password" class="form-control form-control-user" id="password2" name="password2">
+                                                        <input
+                                                            oninvalid="this.setCustomValidity('password terlalu pendek!')"
+                                                            oninput="setCustomValidity('')" minlength="8" required
+                                                            type="password" class="form-control form-control-user"
+                                                            id="password2" name="password2">
                                                     </div>
 
                                                 </div>
@@ -136,8 +150,10 @@ if (isset($_POST['register'])) {
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-body shadow-sm text-right">
-                                                        <a href="daftar-akun.php" class="btn btn-outline-secondary mr-2">Batal</a>
-                                                        <button id="register" name="register" type="submit" class="btn btn-success">Simpan</button>
+                                                        <a href="daftar-akun.php"
+                                                            class="btn btn-outline-secondary mr-2">Batal</a>
+                                                        <button id="register" name="register" type="submit"
+                                                            class="btn btn-success">Simpan</button>
                                                     </div>
                                                 </div>
                                             </div>

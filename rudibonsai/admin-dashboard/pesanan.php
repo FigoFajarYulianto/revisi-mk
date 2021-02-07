@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["admin"])) {
-    header("Location: login.php");
-    exit;
-}
+//if (!isset($_SESSION["admin"])) {
+  //  header("Location: login.php");
+   // exit;
+// }
 
 // dua variabel dibawah ini untuk indikator sidebar aktif
 $sidebarActive = "sidebarPesanan";
@@ -55,7 +55,9 @@ if (isset($_GET['status'])) {
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -92,7 +94,8 @@ if (isset($_GET['status'])) {
                     <!-- Tabel produk -->
                     <div class="custom-table card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-dark"><?= (isset($status) ? ucfirst($status) : "Semua"); ?></h6>
+                            <h6 class="m-0 font-weight-bold text-dark">
+                                <?= (isset($status) ? ucfirst($status) : "Semua"); ?></h6>
                         </div>
 
                         <div class="card-body">
@@ -112,13 +115,14 @@ if (isset($_GET['status'])) {
                                     <tbody>
 
                                         <?php foreach ($data as $d) : ?>
-                                            <tr>
-                                                <td>
-                                                    <a class="btn btn-block btn-success btn-sm" href="detail-pesanan.php?id=<?= $d['kd_transaksi']; ?>">
-                                                        Detail
-                                                    </a>
-                                                </td>
-                                                <?php
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-block btn-success btn-sm"
+                                                    href="detail-pesanan.php?id=<?= $d['kd_transaksi']; ?>">
+                                                    Detail
+                                                </a>
+                                            </td>
+                                            <?php
                                                 $alert = '';
                                                 switch ($d['status_transaksi']) {
                                                     case 'batal':
@@ -144,25 +148,25 @@ if (isset($_GET['status'])) {
                                                         break;
                                                 }
                                                 ?>
-                                                <td>
-                                                    <div class="alert text-center alert-<?= $alert; ?>">
-                                                        <?= ucwords($d['status_transaksi']); ?>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <?= $d['tgl_transaksi'] ?>
-                                                </td>
-                                                <td>
-                                                    <?= htmlspecialchars($d['nama']) ?>
-                                                </td>
-                                                <td>
-                                                    <?= $d['opsi_pembayaran'] ?>
-                                                </td>
-                                                <td>
-                                                    <?= $d['opsi_pengiriman'] ?>
-                                                </td>
-                                                <td><?= number_format($d['total_bayar'], 0, '', '.'); ?></td>
-                                            </tr>
+                                            <td>
+                                                <div class="alert text-center alert-<?= $alert; ?>">
+                                                    <?= ucwords($d['status_transaksi']); ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <?= $d['tgl_transaksi'] ?>
+                                            </td>
+                                            <td>
+                                                <?= htmlspecialchars($d['nama']) ?>
+                                            </td>
+                                            <td>
+                                                <?= $d['opsi_pembayaran'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $d['opsi_pengiriman'] ?>
+                                            </td>
+                                            <td><?= number_format($d['total_bayar'], 0, '', '.'); ?></td>
+                                        </tr>
                                         <?php endforeach; ?>
 
                                     </tbody>

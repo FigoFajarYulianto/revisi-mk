@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["admin"])) {
-    header("Location: login.php");
-    exit;
-}
+// if (!isset($_SESSION["admin"])) {
+  //  header("Location: login.php");
+  //  exit;
+//}
 
 $sidebarActive = "sidebarProduk";
 $itemActive = "dropdownTambahProduk";
@@ -52,7 +52,9 @@ if (isset($_POST['simpan-kategori'])) {
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -102,21 +104,25 @@ if (isset($_POST['simpan-kategori'])) {
 
                                     <form class="custom-form" action="" method="POST" enctype="multipart/form-data">
                                         <div class="form-group row mb-4">
-                                            <label class="col-md-4 col-form-label font-weight-bold" for="nama">Nama Produk</label>
+                                            <label class="col-md-4 col-form-label font-weight-bold" for="nama">Nama
+                                                Produk</label>
                                             <div class="col-md-8">
-                                                <input maxlength="50" required type="text" name="nama-produk" id="nama-produk" class="form-control">
+                                                <input maxlength="50" required type="text" name="nama-produk"
+                                                    id="nama-produk" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-md-4 font-weight-bold" for="kategori">Kategori</label>
                                             <div class="col-md-4 select-kategori">
-                                                <select required name="kategori" class="form-control custom-select" id="kategori">
+                                                <select required name="kategori" class="form-control custom-select"
+                                                    id="kategori">
                                                     <option class="text-center" value="">--- Pilih Kategori ---</option>
                                                     <?php
                                                     $kategori = mysqli_query($conn, "SELECT * FROM tb_kategori");
                                                     while ($dataKategori = mysqli_fetch_array($kategori)) {
                                                     ?>
-                                                        <option value="<?= $dataKategori['kd_kategori']; ?>"><?= ucwords($dataKategori['kategori']); ?></option>
+                                                    <option value="<?= $dataKategori['kd_kategori']; ?>">
+                                                        <?= ucwords($dataKategori['kategori']); ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -124,7 +130,8 @@ if (isset($_POST['simpan-kategori'])) {
                                             <!--Tombol Tambah kategori -->
                                             <div class="col-md-4">
                                                 <!-- Button tambah kategori -->
-                                                <button type="button" class="btn btn-outline-primary custom-btn" data-toggle="modal" data-target="#tambahKategori">
+                                                <button type="button" class="btn btn-outline-primary custom-btn"
+                                                    data-toggle="modal" data-target="#tambahKategori">
                                                     <i class="fa fa-fw fa-plus-square"></i>
                                                     <span>Kategori Baru</span>
                                                 </button>
@@ -134,7 +141,8 @@ if (isset($_POST['simpan-kategori'])) {
                                         <div class="form-group row mb-4">
                                             <label class="col-md-4 font-weight-bold" for="stok">Stok</label>
                                             <div class="col-md-4 col-sm-6">
-                                                <input maxlength="5" required type="number" min="1" name="stok" id="stok" class="form-control">
+                                                <input maxlength="5" required type="number" min="1" name="stok"
+                                                    id="stok" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
@@ -143,25 +151,31 @@ if (isset($_POST['simpan-kategori'])) {
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">Rp</div>
                                                 </div>
-                                                <input maxlength="13" required type="number" min="1" name="harga" id="harga" class="form-control">
+                                                <input maxlength="13" required type="number" min="1" name="harga"
+                                                    id="harga" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-md-4 font-weight-bold" for="harga">Deskripsi</label>
                                             <div class="col">
-                                                <textarea required name="deskripsi" id="deskripsi" rows="5" class="form-control"></textarea>
+                                                <textarea required name="deskripsi" id="deskripsi" rows="5"
+                                                    class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
-                                            <label class="col-md-4 font-weight-bold" for="foto-produk">Upload foto produk</label>
+                                            <label class="col-md-4 font-weight-bold" for="foto-produk">Upload foto
+                                                produk</label>
                                             <div class="col">
-                                                <input required name="image" type="file" class="form-control-file" id="foto-produk">
+                                                <input required name="image" type="file" class="form-control-file"
+                                                    id="foto-produk">
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row-reverse mb-5">
-                                            <button id="simpan-produk" name="simpan-produk" type="submit" class="btn btn-primary ml-3">Simpan</button>
+                                            <button id="simpan-produk" name="simpan-produk" type="submit"
+                                                class="btn btn-primary ml-3">Simpan</button>
                                             <button type="reset" class="btn btn-secondary ml-3">Reset</button>
-                                            <a id="batal-produk" class="btn btn-outline-secondary" href="produk.php">Batal</a>
+                                            <a id="batal-produk" class="btn btn-outline-secondary"
+                                                href="produk.php">Batal</a>
                                         </div>
                                     </form>
 
@@ -173,24 +187,28 @@ if (isset($_POST['simpan-kategori'])) {
                 <!-- /.container-fluid -->
 
                 <!-- Pop-up tambah kategori -->
-                <div class="modal fade" id="tambahKategori" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="tambahKategori" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">Tambah Kategori</h5>
-                                <button id="close-kategori" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button id="close-kategori" type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <form action="" method="POST">
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <input type="text" name="kategori" id="inputKategori" class="form-control" placeholder="Masukkan kategori baru...">
+                                        <input type="text" name="kategori" id="inputKategori" class="form-control"
+                                            placeholder="Masukkan kategori baru...">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <button name="simpan-kategori" type="submit" id="simpan-kategori" class="btn btn-primary">Simpan</button>
+                                    <button name="simpan-kategori" type="submit" id="simpan-kategori"
+                                        class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
                         </div>
