@@ -33,6 +33,7 @@ $connect = new PDO("mysql:host=localhost; dbname=maketan", "root", "");
 $message = '';
 $error_user_nama = '';
 $error_user_email = '';
+$error_alamat = '';
 $error_user_password = '';
 $error_user_telepon = '';
 $user_nama = '';
@@ -65,6 +66,16 @@ if(isset($_POST["register"]))
 		}
 	}
 
+	if(empty($_POST["alamat"]))
+	{
+		$error_alamat = "<label class='text-danger'>Enter your address</label>";
+	}
+	else
+	{
+		$alamat = trim($_POST["alamat"]);
+		$alamat = htmlentities($alamat);
+	}
+
 	if(empty($_POST["user_password"]))
 	{
 		$error_user_password = '<label class="text-danger">Enter Password</label>';
@@ -85,7 +96,7 @@ if(isset($_POST["register"]))
 		$user_telepon = htmlentities($user_telepon);
 	}
 
-	if($error_user_nama == '' && $error_user_email == '' && $error_user_password == '' && $error_user_telepon == '')
+	if($error_user_nama == '' && $error_user_email == '' && $error_alamat == '' && $error_user_password == '' && $error_user_telepon == '')
 	{
 		$user_activation_code = md5(rand());
 
@@ -98,6 +109,7 @@ if(isset($_POST["register"]))
 		$data = array(
 			':user_nama'			=>	$user_nama,
 			':user_email'			=>	$user_email,
+			':alamat'				=>	$alamat,
 			':user_password'		=>	$user_password,
 			':user_activation_code' => $user_activation_code,
 			':user_email_status'	=>	'not verified',
@@ -109,8 +121,8 @@ if(isset($_POST["register"]))
 
 		$query = "
 		INSERT INTO user 
-		(user_nama, user_email, user_password, user_activation_code, user_email_status, user_otp, user_foto, user_status, user_telepon)
-		SELECT * FROM (SELECT :user_nama, :user_email, :user_password, :user_activation_code, :user_email_status, :user_otp, :user_foto, :user_status, :user_telepon) AS tmp
+		(user_nama, user_email, alamat, user_password, user_activation_code, user_email_status, user_otp, user_foto, user_status, user_telepon)
+		SELECT * FROM (SELECT :user_nama, :user_email, :alamat,  :user_password, :user_activation_code, :user_email_status, :user_otp, :user_foto, :user_status, :user_telepon) AS tmp
 		WHERE NOT EXISTS (
 		    SELECT user_email FROM user WHERE user_email = :user_email
 		) LIMIT 1
@@ -239,9 +251,9 @@ input:valid + span:after {
 
                 </center>
 
-                <?php echo'<div class="alert alert-danger text-center">'; ?>
+                <!-- echo'<div class="alert alert-danger text-center">';  -->
 				<?php echo $message; ?>
-				<?php echo'</div>'; ?>
+				<!-- echo'</div>';  -->
 
                 <div class="">
 
@@ -273,283 +285,16 @@ input:valid + span:after {
 
                         </div>
 
-						<!-- Inputan Alamat -->
-
-						<!-- Inputan Provinsi -->
-
-						<div class="dropdown">
-      <div class="dropdown-select">
-        <span class="select">Selected item</span>
-        <i class="fa fa-caret-down icon"></i>
-      </div>
-
-						<label>Provinsi</label>
 
 						<div class="form-group">
 
-						<?php 
-						include 'koneksi.php';
-						?>
+                            <label>Alamat</label>
 
-						<select id="form_prov">
-						
-						<option value="">Pilih Provinsi</option>
-					
-						<?php 
-						$daerah = mysqli_query($koneksi,"SELECT kode,nama FROM wilayah_2020 WHERE CHAR_LENGTH(kode)=2 ORDER BY nama");
-						while($d = mysqli_fetch_array($daerah)){
-							?>
-							<option value="<?php echo $d['kode']; ?>"><?php echo $d['nama']; ?></option>
-							<?php 
-						}
-						?>
-						</select>
+                            <input type="text" name="user_alamat" class="form-control" required='required' autocomplete="off"
 
-						</div>
+                                placeholder="Masukkan alamat ..">
 
-						<!-- Inputan Kabupaten -->
-
-						<label>Kabupaten</label>
-
-						<div class="form-group">
-
-						<?php 
-						include 'koneksi.php';
-						?>
-
-						
-						<select id="form_kab">Pilih Kabupaten/kota
-						<option value="">Pilih Provinsi</option>
-						</select>
-						
-						
-						
-						
-
-						<script type="text/javascript">
-						$(document).ready(function(){
-
-							// sembunyikan form kabupaten, kecamatan dan desa
-							$("#form_kab").show();
-							$("#form_kec").show();
-							$("#form_des").show();
-
-							// ambil data kabupaten ketika data memilih provinsi
-							$('body').on("change","#form_prov",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=kabupaten";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_kab").html(hasil);
-										$("#form_kab").show();
-										$("#form_kec").show();
-										$("#form_des").show();
-									}
-								});
-							});
-
-							// ambil data kecamatan/kota ketika data memilih kabupaten
-							$('body').on("change","#form_kab",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=kecamatan";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_kec").html(hasil);
-										$("#form_kec").show();
-										$("#form_des").show();
-									}
-								});
-							});
-
-							// ambil data desa ketika data memilih kecamatan/kota
-							$('body').on("change","#form_kec",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=desa";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_des").html(hasil);
-										$("#form_des").show();
-									}
-								});
-							});
-
-
-						});
-					</script>
-
-						</div>
-
-						<!-- Inputan Kecamatan -->
-
-						<label>Kecamatan</label>
-
-						<div class="form-group">
-
-						<?php 
-						include 'koneksi.php';
-						?>
-
-						
-						<select id="form_kec">
-						<option value="">Pilih Kecamatan</option>
-						</select>
-						
-						
-						
-						
-
-						<script type="text/javascript">
-						$(document).ready(function(){
-
-							// sembunyikan form kabupaten, kecamatan dan desa
-							$("#form_kab").show();
-							$("#form_kec").show();
-							$("#form_des").show();
-
-							// ambil data kabupaten ketika data memilih provinsi
-							$('body').on("change","#form_prov",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=kabupaten";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_kab").html(hasil);
-										$("#form_kab").show();
-										$("#form_kec").show();
-										$("#form_des").show();
-									}
-								});
-							});
-
-							// ambil data kecamatan/kota ketika data memilih kabupaten
-							$('body').on("change","#form_kab",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=kecamatan";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_kec").html(hasil);
-										$("#form_kec").show();
-										$("#form_des").show();
-									}
-								});
-							});
-
-							// ambil data desa ketika data memilih kecamatan/kota
-							$('body').on("change","#form_kec",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=desa";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_des").html(hasil);
-										$("#form_des").show();
-									}
-								});
-							});
-
-
-						});
-					</script>
-
-						</div>
-
-						<!-- Inputan desa -->
-						<label>Desa</label>
-
-						<div class="form-group">
-
-						<?php 
-						include 'koneksi.php';
-						?>
-
-						
-						<select id="form_des">
-						<option value="">Pilih Desa</option>
-						</select>
-						
-						
-						
-						
-
-						<script type="text/javascript">
-						$(document).ready(function(){
-
-							// sembunyikan form kabupaten, kecamatan dan desa
-							$("#form_kab").show();
-							$("#form_kec").show();
-							$("#form_des").show();
-
-							// ambil data kabupaten ketika data memilih provinsi
-							$('body').on("change","#form_prov",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=kabupaten";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_kab").html(hasil);
-										$("#form_kab").show();
-										$("#form_kec").show();
-										$("#form_des").show();
-									}
-								});
-							});
-
-							// ambil data kecamatan/kota ketika data memilih kabupaten
-							$('body').on("change","#form_kab",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=kecamatan";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_kec").html(hasil);
-										$("#form_kec").show();
-										$("#form_des").show();
-									}
-								});
-							});
-
-							// ambil data desa ketika data memilih kecamatan/kota
-							$('body').on("change","#form_kec",function(){
-								var id = $(this).val();
-								var data = "id="+id+"&data=desa";
-								$.ajax({
-									type: 'POST',
-									url: "get_daerah.php",
-									data: data,
-									success: function(hasil) {
-										$("#form_des").html(hasil);
-										$("#form_des").show();
-									}
-								});
-							});
-
-
-						});
-					</script>
-
-						</div>
-
-						<!-- Penutup inputan alamat -->
+                        </div>
 
 
 
