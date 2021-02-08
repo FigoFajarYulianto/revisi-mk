@@ -159,14 +159,14 @@ if (!isset($_SESSION['user_status']))
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="kirimCOD" name="jenis-pengiriman" value="cod" class="custom-control-input">
                                                 <label class="custom-control-label" for="kirimCOD">COD</label>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </table>
 
                                 <!-- Jenis Pembayaran -->
