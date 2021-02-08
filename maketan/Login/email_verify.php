@@ -76,10 +76,10 @@ else
 				</center>
 				<br>
 
-				<?php echo'<div class="alert alert-danger text-center">'; ?>
+				<!-- echo'<div class="alert alert-danger text-center">';  -->
 				<?php echo $message; ?>
 				<?php echo $error_user_otp; ?>
-				<?php echo'</div>'; ?>
+				<!-- echo'</div>';  -->
 				
 				
 
