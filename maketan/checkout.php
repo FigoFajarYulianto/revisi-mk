@@ -1,6 +1,16 @@
 <?php
     session_start();
     require_once "koneksi.php";
+
+    if (!isset($_SESSION['user_status']))
+
+{
+
+    echo "<script>alert;</script>";
+
+    echo "<script>location='Login/login.php';</script>";
+
+}
     
 ?>
 <!doctype html>

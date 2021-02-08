@@ -20,15 +20,7 @@ include 'koneksi.php';
 
 
 
-if (!isset($_SESSION['user_status']))
 
-{
-
-    echo "<script>alert;</script>";
-
-    echo "<script>location='Login/login.php';</script>";
-
-}
 
 
 

@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user_status']))
+
+{
+
+    echo "<script>alert;</script>";
+
+    echo "<script>location='Login/login.php';</script>";
+
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -168,7 +178,7 @@ session_start();
                                         <td>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="bayarCash" name="jenis-pembayaran" value="cash" class="custom-control-input">
-                                                <label class="custom-control-label" for="bayarCash">Cash</label>
+                                                <label class="custom-control-label" for="bayarCash">Transfer</label>
                                             </div>
                                         </td>
                                     </tr>
