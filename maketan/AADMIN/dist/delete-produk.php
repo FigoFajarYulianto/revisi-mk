@@ -5,7 +5,7 @@
     $sql1 = "select lokasi_gambar from gambar where id_produk=$id_produk";
     $sql2 = "DELETE FROM gambar WHERE id_produk=$id_produk";
     $sql3 = "DELETE FROM ukuran WHERE id_produk=$id_produk";
-    $sql4 = "DELETE FROM produk WHERE id_produk=$id_produk";
+    $sql4 = "DELETE FROM tb_produk WHERE id_produk=$id_produk";
 
     $query1 = mysqli_query($conn, $sql1);
     $data = mysqli_fetch_array($query1);

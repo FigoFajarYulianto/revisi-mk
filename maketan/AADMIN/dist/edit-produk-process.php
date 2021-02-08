@@ -1,94 +1,55 @@
 <?php
-    require_once "connection.php";
+  session_start();
+  require_once "connection.php";
+if (isset($_POST['ubah']))
 
-    $status = $_GET["status"];
-    $id_produk = isset($_GET["id_produk"]) ? $_GET["id_produk"] : "";
+{
 
-    $nama_produk= $_POST["nama_produk"];
-    $id_kategori = $_POST["id_kategori"];
-    $harga = $_POST["harga"];
-    $stok = $_POST["stok"];
-    $id_satuan = $_POST["id_satuan"];
-    $map_link = $_POST["map_link"];
-    $gbr = $_POST["gbr_produk"];
-    $deskripsi = $_POST["deskripsi_produk"];
-    
-    $panjang = $_POST["panjang"];
-    $lebar_dada = $_POST["lebar-dada"];
-    $stok = $_POST["stok"];
-    $keterangan = $_POST["keterangan"] != "" ? $_POST["keterangan"] : "-";
-    if(isset($_POST["best-seller"])){
-        $best_seller = $_POST["best-seller"] == "on" ? 1:0;
-    }else{
-        $best_seller = 0;
-    }
-    
-    $error_gambar = $status == "edit" ? 0 : $_FILES["gambar"]["error"];
-    if(intval($harga) < 0){
-        header("Location: edit-produk.php?id_produk=$id_produk&status=$status&error=harga");
-        return 0;
-    }
-    if($kategori == "#"){
-        header("Location: edit-produk.php?id_produk=$id_produk&status=$status&error=kategori");
-        return 0;
-    }
-    if($error_gambar == 4){
-        header("Location: edit-produk.php?id_produk=$id_produk&status=$status&error=gambar");
-        return 0;
-    }else{
-        $gambar_tmp = $_FILES["gambar"]["tmp_name"];
-        $gambar = $_FILES["gambar"]["name"];
-    }
-    // Query
+$namafoto=$_FILES['foto'] ['name'];
 
-    if($status == "edit"){
-        // Edit produk
-        $sql = "update produk set nama_produk='$nama_produk', id_kategori='$id_kategori', harga='$harga', stok='$stok', harga='$harga', stok='$stok', keterangan='$keterangan', best_seller='$best_seller' where id_produk='$id_produk'";
-        $query = mysqli_query($koneksi, $sql);
-        // Edit ukuran
-        $sql = "update ukuran set panjang=$panjang, lebar_dada=$lebar_dada where id_produk=$id_produk";
-        $query = mysqli_query($koneksi, $sql);
-        
-        // Cek jika ada file yang diupload
-        if($_FILES["gambar"]["size"] == !0){
-            // Unlink gambar
-            $sql = "select lokasi_gambar from gambar where id_produk=$id_produk";
-            $query = mysqli_query($koneksi, $sql);
-            $data = mysqli_fetch_array($query);
-            unlink("../../".$data["lokasi_gambar"]);
+$lokasifoto = $_FILES['foto'] ['tmp_name'];
 
-            // Edit gambar
-            $lokasi_gambar_dst = "images/product-img/".$gambar;
-            $sql2 = "update gambar set id_kategori='$kategori', lokasi_gambar='$lokasi_gambar_dst' where id_produk=$id_produk";
-            $query2 = mysqli_query($koneksi, $sql2);    
-            move_uploaded_file($gambar_tmp, "../../".$lokasi_gambar_dst);
-        }
-        
-    }elseif($status == "add"){
-        // Tambah produk
-        $sql = "insert into produk values(NULL, '$kategori', '$nama_barang', '$warna', '$bahan', $harga, '$keterangan', $stok, $best_seller)";
-        $query = mysqli_query($koneksi, $sql);
+//jika foto dirubah
 
-        // Mencari id produk terakhir yang ditambahkan
-        $sql2 = "select id_produk from produk order by id_produk desc limit 1";
-        $query2 = mysqli_query($koneksi, $sql2);
-        $data2 = mysqli_fetch_array($query2);
-        $id_produk = $data2["id_produk"];
+if (!empty($lokasifoto))
 
-        // Tambah ukuran
-        $sql3 = "insert into ukuran values($id_produk, $lebar_dada, $panjang)";
-        $query3 = mysqli_query($koneksi, $sql3);
+{
 
-        // Tambah gambar
-        $lokasi_gambar_dst = "images/product-img/".$gambar;
-        $sql4 = "insert into gambar values($id_produk, '$lokasi_gambar_dst')";
-        $query4 = mysqli_query($koneksi, $sql4);    
-        move_uploaded_file($gambar_tmp, "../../".$lokasi_gambar_dst);
+move_uploaded_file($lokasifoto, "../../produk2/produk2/assets/img/produk/$namafoto");
 
-    }
 
-    
-        header("Location: data-produk.php");
 
+$koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
+
+id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',
+id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
+
+gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
+
+WHERE id_produk='$_GET[id_produk]'");
+
+}
+
+else
+
+{
+
+$koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
+
+id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
+
+deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id_produk]'");
+
+}
+
+echo "<script>
+alert('data produk telah diubah');
+</script>";
+
+header("Location: data-produk.php");
+
+
+
+}
 
 ?>

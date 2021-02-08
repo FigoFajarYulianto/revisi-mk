@@ -1,6 +1,45 @@
     <?php
       include "sidebar.php";
       require_once "connection.php";
+
+      if($_GET["status"] == "edit"){
+        // Code here
+        $title = "Edit Produk";
+
+        $id_produk = $_GET["id_produk"];
+        $sql = "select * from tb_produk where id_produk='$id_produk'";
+        $query = mysqli_query($koneksi, $sql);
+        $data = mysqli_fetch_array($query);
+
+        $nama_produk= $data["nama_produk"];
+        $id_kategori = $data["id_kategori"];
+        $harga = $data["harga"];
+        $stok = $data["stok"];
+        $id_satuan = $data["id_satuan"];
+        $map_link = $data["map_link"];
+        $gbr = $data["gbr_produk"];
+        $deskripsi = $data["deskripsi_produk"];
+        
+      }else{
+        // Code here
+        $title = "Tambah Produk";
+
+        $id_produk = "";
+        $id_kategori = "";
+        $nama_barang = "";
+        $warna = "";
+        $bahan = "";
+        $harga = "";
+        $stok = "";
+        $keterangan = "";
+        $best_seller = "";
+
+        $panjang = "";
+        $lebar_dada = "";
+
+        $gambar = "";
+      }
+      $status = $_GET["status"];
       
     ?>
     <!-- Icon Title -->
@@ -15,10 +54,7 @@
 
                 <?php
 
-$id_produk = $_GET["id_produk"];
-        $sql = "SELECT * FROM tb_produk inner join kategori on tb_produk.id_kategori = kategori.id_kategori inner join satuan on tb_produk.id_satuan = satuan.id_satuan where tb_produk.id_produk='$id_produk'";
-        $query = mysqli_query($koneksi, $sql);
-        $data = mysqli_fetch_array($query);
+
 
 
 
@@ -54,7 +90,9 @@ while($satuanbarang=$satuan->fetch_assoc())
 
 
 
-                <form method="POST" enctype="multipart/form-data">
+                <form
+                    action="edit-produk-process.php?status=<?php echo $status; if($id_produk !='')echo '&id_produk=' .$id_produk; ?>"
+                    method="POST" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label>Nama Produk</label>
@@ -147,7 +185,7 @@ while($satuanbarang=$satuan->fetch_assoc())
 
                     <div class="form-group">
 
-                        <img src="../produk2/produk2/assets/img/produk/<?php echo $data['gbr_produk'] ?>" width="100">
+                        <img src="../produk2/produk2/assets/img/produk/<?php echo $data['gbr_produk']; ?>" width="100">
 
                     </div>
 
@@ -180,54 +218,5 @@ while($satuanbarang=$satuan->fetch_assoc())
 
                 <?php
 
-if (isset($_POST['ubah']))
-
-{
-
-    $namafoto=$_FILES['foto'] ['name']; 
-
-    $lokasifoto = $_FILES['foto'] ['tmp_name'];
-
-    //jika foto dirubah
-
-    if (!empty($lokasifoto))
-
-    {
-
-        move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
-
-
-
-        $sql= "UPDATE tb_produk SET nama_produk='$_POST[nama]',
-
-        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]', id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
-
-        gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
-
-        WHERE id_produk='$_GET[id]'";
-        $query = mysqli_query($koneksi, $sql);
-
-    }
-
-    else
-
-    {
-
-        $sql= "UPDATE tb_produk SET nama_produk='$_POST[nama]',
-
-        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
-
-        deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'";
-        $query = mysqli_query($koneksi, $sql);
-
-    }
-
-    echo "<script>alert('data produk telah diubah' );</script>";
-
-    echo "<script>location='data-produk.php';</script>";
-
-
-
-}
 
 ?>
