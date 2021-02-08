@@ -150,13 +150,13 @@ if(isset($_POST["register"]))
 
 			$statement->execute();
 
-			// require 'class/class.phpmailer.php';
+			// require 'class/class.phpmailer.php'; 
 			$mail = new PHPMailer;
 			$mail->IsSMTP();
 			$mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 			$mail->Username   = 'maketanresmi@gmail.com';                     // SMTP username
-			$mail->Password   = 'maketan312';                               // SMTP password
+			$mail->Password   = 'maketan213';                               // SMTP password
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 			$mail->Port = '587'; 
 			$mail->From = 'maketanresmi@gmail.com';
@@ -290,7 +290,7 @@ input:valid + span:after {
 
                             <label>Alamat</label>
 
-                            <input type="text" name="user_alamat" class="form-control" required='required' autocomplete="off"
+                            <input type="text" name="alamat" class="form-control" required='required' autocomplete="off"
 
                                 placeholder="Masukkan alamat ..">
 
