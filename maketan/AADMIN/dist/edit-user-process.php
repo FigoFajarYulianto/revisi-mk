@@ -1,38 +1,47 @@
 <?php
     session_start();
     require_once "connection.php";
-    $email = $_POST["email"];
-    $pass = $_POST["pass"];
-    $pass2 = $_POST["pass2"];
-    $nama = $_POST["nama"];
-    $gender = $_POST["gender"];
-    $wa = $_POST["wa"];
-    $alamat = $_POST["alamat"];
-    $level = $_POST["level"];
-    $id_user = $_GET["id_user"];
+    if (isset($_POST['ubah']))
 
-    if($pass != $pass2){
-        header("Location: edit-user.php?error=error-password");
+{
+
+    $namafoto=$_FILES['foto'] ['name']; 
+
+    $lokasifoto = $_FILES['foto'] ['tmp_name'];
+
+    //jika foto dirubah
+
+    if (!empty($lokasifoto))
+
+    {
+
+        move_uploaded_file($lokasifoto, "../../gambar/user/$namafoto");
+
+
+
+        $koneksi->query("UPDATE user SET user_nama='$_POST[nama]',
+
+        user_email='$_POST[email]',user_telepon='$_POST[wa]',user_foto='$namafoto',alamat='$_POST[alamat]'
+
+        WHERE user_id='$_GET[user_id]'");
+
     }
-    if($gender == "#"){
-        header("Location: edit-user.php?error=error-gender");
+
+    else
+
+    {
+
+        $koneksi->query("UPDATE user SET user_nama='$_POST[nama]',
+
+        user_email='$_POST[email]',user_telepon='$_POST[wa]',alamat='$_POST[alamat]'
+
+        WHERE user_id='$_GET[user_id]'");
     }
-    if($level == "#"){
-        header("Location: edit-user.php?error=error-level");
-    }
-    $status = $_GET["status"];
-    if($status == "edit"){
-        $sql = "UPDATE user SET email='$email', pass='$pass',  nama='$nama', jenis_kelamin='$gender', alamat='$alamat', nomor_wa='$wa', level=$level WHERE id_user=$id_user";
-    }elseif($status == "add"){
-        $sql = "INSERT INTO user VALUES (NULL, '$email', '$pass', '$nama', '$gender', '$alamat', '$wa', $level, 'tidak')";
-    }
-    $query = mysqli_query($conn, $sql);
-    if($query){
-        if($level == 1){
-            header("Location: admin.php");
-        }else{
+        
+            
+        
             header("Location: user.php");
-        }
-    }
+        
+}
 
-?> 
+?>

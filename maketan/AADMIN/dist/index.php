@@ -11,7 +11,7 @@
     <h1 class="my-4">Dashboard</h1>
     <div class="row">
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-danger text-white mb-4">
+            <div class="card bg-warning text-white mb-4">
                 <div class="card-body">
                     <?php
                             $sql = "select * from transaksi where status='belum bayar' and jenis_pembayaran='cash'";
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-warning text-white mb-4">
+            <div class="card bg-info text-white mb-4">
                 <div class="card-body">
                     <?php
                             $sql = "select * from transaksi where status='menunggu kirim'";
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-info text-white mb-4">
+            <div class="card bg-success text-white mb-4">
                 <div class="card-body">
                     <?php
                             $sql = "select * from transaksi where status='proses kirim'";
@@ -67,28 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-secondary text-white mb-4">
-                <div class="card-body">
-                    <?php
-                            $sql = "select * from transaksi where status='belum bayar' and jenis_pembayaran='tabungan'";
-                            $query = mysqli_query($koneksi, $sql);
-                            $data = mysqli_num_rows($query);
-                        ?>
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="p-0">Tabungan</div>
-                        <div class="p-0"><?php echo $data; ?></div>
-                    </div>
-                </div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="tabungan.php">Lihat Detail</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
 
-        </div>
     </div>
 </div>
 <div class="card mb-4">
@@ -108,7 +87,6 @@
                         <th>Nomor WA</th>
                         <th>Jenis Pembayaran</th>
                         <th>Jenis Pengiriman</th>
-                        <th>Tabungan</th>
                         <th>Total</th>
                         <th>Status</th>
                     </tr>
@@ -129,7 +107,6 @@
                         <td><?php echo $data["user_telepon"]; ?></td>
                         <td><?php echo $data["jenis_pembayaran"]; ?></td>
                         <td><?php echo $data["jenis_pengiriman"]; ?></td>
-                        <td><?php echo $data["tabungan"]; ?></td>
                         <td><?php echo $data["total"]; ?></td>
                         <td><?php echo $data["status"]; ?></td>
                     </tr>

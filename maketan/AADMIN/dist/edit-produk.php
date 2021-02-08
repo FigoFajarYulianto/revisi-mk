@@ -198,13 +198,14 @@ if (isset($_POST['ubah']))
 
 
 
-        $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
+        $sql= "UPDATE tb_produk SET nama_produk='$_POST[nama]',
 
         id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]', id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
 
         gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
 
-        WHERE id_produk='$_GET[id]'");
+        WHERE id_produk='$_GET[id]'";
+        $query = mysqli_query($koneksi, $sql);
 
     }
 
@@ -212,12 +213,12 @@ if (isset($_POST['ubah']))
 
     {
 
-      $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
+        $sql= "UPDATE tb_produk SET nama_produk='$_POST[nama]',
 
-      id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
+        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',stok='$_POST[stok]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
 
-      deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'");
-
+        deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'";
+        $query = mysqli_query($koneksi, $sql);
 
     }
 

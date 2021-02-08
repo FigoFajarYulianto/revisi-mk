@@ -1,8 +1,8 @@
 <?php 
-    session_start();
-    if(!isset($_SESSION["level"]) or $_SESSION["level"] != "admin"){
-        header("Location: ../../index.php");
-    }
+    //session_start();
+   // if(!isset($_SESSION["level"]) or $_SESSION["level"] != "admin"){
+   //     header("Location: ../../index.php");
+   // }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -37,7 +37,7 @@ if($cek == 1) {
 	header("Location:../index.php");
 	return;
 }else{
-	header("location:login.php?alert=gagal");
+	header("location:login.php?register=gagal");
 }
 
 ?>
