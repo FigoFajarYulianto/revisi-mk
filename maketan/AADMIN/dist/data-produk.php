@@ -7,7 +7,7 @@
     <!-- Table -->
     <div class="card mb-4">
         <div class="card-body">
-            <a href="tambahproduk.php?status=add" class="btn btn-dark mb-2" style="float: right;">Tambah Produk</a>
+            <a href="tambahproduk.php?status=add" class="btn btn-primary mb-2" style="float: right;">Tambah Produk</a>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable">
                     <thead class="thead-dark">
