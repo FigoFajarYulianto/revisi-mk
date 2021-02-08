@@ -18,7 +18,6 @@
                             <th>Nomor WA</th>
                             <th>Jenis Pembayaran</th>
                             <th>Jenis Pengiriman</th>
-                            <th>Tabungan</th>
                             <th>Total</th>
                             <th>Nomor Resi</th>
                             <th>Status</th>
@@ -55,7 +54,6 @@
                         <td><?php echo $data["user_telepon"]; ?></td>
                         <td><?php echo $data["jenis_pembayaran"]; ?></td>
                         <td><?php echo $data["jenis_pengiriman"]; ?></td>
-                        <td><?php echo $data["tabungan"]; ?></td>
                         <td><?php echo $data["total"]; ?></td>
                         <td><?php echo $data["resi"]; ?></td>
                         <td><?php echo $data["status"]; ?></td>
