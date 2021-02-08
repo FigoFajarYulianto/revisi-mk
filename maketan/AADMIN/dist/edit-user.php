@@ -40,34 +40,10 @@
 
             </div>
             <div class="card-body">
-                <?php
-            if(isset($_GET["error"])){
-              $status = $_GET["error"];
-              if($status == "error-password"){
-          ?>
-                <div class="alert alert-warning" role="alert">
-                    Password tidak sesuai! Ulangi lagi.
-                </div>
-                <?php
-              }elseif($status == "error-gender") {
-          ?>
-                <div class="alert alert-danger" role="alert">
-                    Jenis kelamin belum dimasukkan!
-                </div>
-                <?php
-              }elseif($status == "error-level") {
-          ?>
-                <div class="alert alert-danger" role="alert">
-                    Jenis level akses belum dimasukkan!
-                </div>
-                <?php
-              }
-               
-            }
-          ?>
+
                 <form
                     action="edit-user-process.php?status=<?php echo $status; if($id_user != '') echo '&user_id='.$id_user; ?>"
-                    method="POST">
+                    method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <span>Email</span>
                         <input type="email" name="email" class="form-control" placeholder="Masukkan email"
@@ -91,7 +67,7 @@
 
                     <div class="form-group">
 
-                        <img src="../../gambar/user/<?php echo $foto; ?>" width="100">
+                        <img src="../../gambar/user/<?php echo $data['user_foto']; ?>" width="100">
 
                     </div>
 
