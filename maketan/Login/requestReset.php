@@ -46,7 +46,7 @@ require 'koneksi.php';
                         $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
                         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
                         $mail->Username   = 'maketanresmi@gmail.com';                     // SMTP username
-                        $mail->Password   = 'maketan312';                               // SMTP password
+                        $mail->Password   = 'maketan213';                               // SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->Port = '587';                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                     

@@ -33,7 +33,7 @@ $connect = new PDO("mysql:host=localhost; dbname=maketan", "root", "");
 $message = '';
 $error_user_nama = '';
 $error_user_email = '';
-$error_alamat = '';
+$error_user_alamat = '';
 $error_user_password = '';
 $error_user_telepon = '';
 $user_nama = '';
@@ -66,14 +66,14 @@ if(isset($_POST["register"]))
 		}
 	}
 
-	if(empty($_POST["alamat"]))
+	if(empty($_POST["user_alamat"]))
 	{
-		$error_alamat = "<label class='text-danger'>Enter your address</label>";
+		$error_user_alamat = "<label class='text-danger'>Enter your address</label>";
 	}
 	else
 	{
-		$alamat = trim($_POST["alamat"]);
-		$alamat = htmlentities($alamat);
+		$user_alamat = trim($_POST["user_alamat"]);
+		$user_alamat = htmlentities($user_alamat);
 	}
 
 	if(empty($_POST["user_password"]))
@@ -96,7 +96,7 @@ if(isset($_POST["register"]))
 		$user_telepon = htmlentities($user_telepon);
 	}
 
-	if($error_user_nama == '' && $error_user_email == '' && $error_alamat == '' && $error_user_password == '' && $error_user_telepon == '')
+	if($error_user_nama == '' && $error_user_email == '' && $error_user_alamat == '' && $error_user_password == '' && $error_user_telepon == '')
 	{
 		$user_activation_code = md5(rand());
 
@@ -109,7 +109,7 @@ if(isset($_POST["register"]))
 		$data = array(
 			':user_nama'			=>	$user_nama,
 			':user_email'			=>	$user_email,
-			':alamat'				=>	$alamat,
+			':user_alamat'			=>	$user_alamat,
 			':user_password'		=>	$user_password,
 			':user_activation_code' => $user_activation_code,
 			':user_email_status'	=>	'not verified',
@@ -121,8 +121,8 @@ if(isset($_POST["register"]))
 
 		$query = "
 		INSERT INTO user 
-		(user_nama, user_email, alamat, user_password, user_activation_code, user_email_status, user_otp, user_foto, user_status, user_telepon)
-		SELECT * FROM (SELECT :user_nama, :user_email, :alamat,  :user_password, :user_activation_code, :user_email_status, :user_otp, :user_foto, :user_status, :user_telepon) AS tmp
+		(user_nama, user_email, user_alamat, user_password, user_activation_code, user_email_status, user_otp, user_foto, user_status, user_telepon)
+		SELECT * FROM (SELECT :user_nama, :user_email, :user_alamat,  :user_password, :user_activation_code, :user_email_status, :user_otp, :user_foto, :user_status, :user_telepon) AS tmp
 		WHERE NOT EXISTS (
 		    SELECT user_email FROM user WHERE user_email = :user_email
 		) LIMIT 1
@@ -290,7 +290,7 @@ input:valid + span:after {
 
                             <label>Alamat</label>
 
-                            <input type="text" name="alamat" class="form-control" required='required' autocomplete="off"
+                            <input type="text" name="user_alamat" class="form-control" required='required' autocomplete="off"
 
                                 placeholder="Masukkan alamat ..">
 
