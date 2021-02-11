@@ -42,7 +42,7 @@
 						<div class="alert alert-danger text-center">
 							<span class="font-weight-bold">Login gagal !</span>
 							<br>
-							<small class="font-weight-light">Email & password tidak sesuai.</small>
+							<small class="font-weight-light">Email & password tidak sesuai Atau anda belum melakukan verifikasi.</small>
 						</div>
 						<?php
 					}
