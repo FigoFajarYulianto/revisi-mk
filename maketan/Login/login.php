@@ -7,7 +7,7 @@
 
 			<div class="pt-4 pb-3">
 
-			<div class="border" style="padding-bottom:650px;">
+			<div class="border" style="padding-bottom:700px;">
 				<center>
 					<a href="login.php"><img src="../gambar/sistem/maketan3.png" style="width:auto; height:150px; margin-right:auto; margin-left:auto;"></a>
 				</center>
@@ -42,7 +42,7 @@
 						<div class="alert alert-danger text-center">
 							<span class="font-weight-bold">Login gagal !</span>
 							<br>
-							<small class="font-weight-light">Email & password tidak sesuai Atau anda belum melakukan verifikasi.</small>
+							<small class="font-weight-light">Email & password tidak sesuai. Atau anda belum melakukan verifikasi email.</small>
 						</div>
 						<?php
 					}
